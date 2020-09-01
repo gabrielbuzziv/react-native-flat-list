@@ -1,0 +1,24 @@
+import React, { useEffect, useState } from 'react';
+
+import { ActivityIndicator } from 'react-native';
+
+import { Container, Item, ItemName } from './styles';
+
+const RepoList = ({ data, loading }) => {
+  return (
+    <Container
+      showsHorizontalScrollIndicator={false}
+      showsVerticalScrollIndicator={false}
+    >
+      {loading && <ActivityIndicator size="small" color="#fff" />}
+
+      {data.map((item) => (
+        <Item key={String('post ' + Math.random() + item.id)}>
+          <ItemName>{item.first_name}</ItemName>
+        </Item>
+      ))}
+    </Container>
+  );
+};
+
+export default RepoList;
